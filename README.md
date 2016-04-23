@@ -34,20 +34,20 @@ $('#text').NylAutoWriter({
 ### Options
 
 ##### color
-    __Default : 'black'__
+    Default : 'black'
     the text color of the writter's cursor.
 ##### backgroundColor:
-    __Default: 'white'__
+    Default: 'white'
     The background color of the writter's cursor
 ##### mask
-    __Default: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?!-,.@/\'"'__
+    Default: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?!-,.@/\'"'
     The mask used by the script to pick random letters for the cursor effect
 ##### timeout
-    __Default: 1__
+    Default: 1
     The timeout value in milliseconds used into the cursor effet
 ##### blackAndWhite
-    __Default: false__
+    Default: false
     Use this flag to force back and white effect with the cursor.
 ##### iterations
-    __Default: 10__
+    Default: 10
     The number of random iterations used per letter for the cursor effect
