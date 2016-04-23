@@ -1,5 +1,5 @@
 # NylAutoWriter
-Auto-writer Jquery plugin with a little visual effect
+Auto-writer Jquery plugin with a little visual effect  
 __demo__: http://www.nyl.graphics/nylwriter/demo/
 ### Installation
 __By Downloading files:__
