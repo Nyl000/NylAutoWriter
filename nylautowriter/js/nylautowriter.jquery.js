@@ -56,50 +56,54 @@
 
 
         var morphing = function(wraper, letters, mask, position, morph, iteration, callback){
-            if (position < letters.length) {
-                setTimeout(function () {
-                    var rand = Math.floor(Math.random() * mask.length);
-                    if (iteration < iterations ) {
-                        var randR = Math.floor(Math.random() * 255).toString(16);
+                wraper.attr('data-writer-on', true);
+                if (position < letters.length) {
+                    setTimeout(function () {
+                        var rand = Math.floor(Math.random() * mask.length);
+                        if (iteration < iterations) {
+                            var randR = Math.floor(Math.random() * 255).toString(16);
 
-                        if (!noColor) {
-                            wraper.html(morph + '<span style=" color: ' + textColor + '; background:#' + randR + backgroundColorChunk + '">' + mask[rand] + "</span>");
-                        }
-                        else {
-                            wraper.html(morph + '<span style=" color: ' + textColor + '; background:#' + randR + randR+randR + '">' + mask[rand] + "</span>");
+                            if (!noColor) {
+                                wraper.html(morph + '<span style=" color: ' + textColor + '; background:#' + randR + backgroundColorChunk + '">' + mask[rand] + "</span>");
+                            }
+                            else {
+                                wraper.html(morph + '<span style=" color: ' + textColor + '; background:#' + randR + randR + randR + '">' + mask[rand] + "</span>");
 
-                        }
+                            }
 
-                        morphing(wraper, letters, mask, position, morph, iteration+1, callback);
-
-
-                    }
-                    else {
-                        wraper.html(morph + letters[position]);
-
-                        if (position < letters.length) {
-                            morph += letters[position];
-
-                            morphing(wraper, letters, mask, position + 1, morph, 0, callback);
-
+                            morphing(wraper, letters, mask, position, morph, iteration + 1, callback);
 
 
                         }
                         else {
-                            wraper.html(morph);
+                            wraper.html(morph + letters[position]);
+
+                            if (position < letters.length) {
+                                morph += letters[position];
+
+                                morphing(wraper, letters, mask, position + 1, morph, 0, callback);
+
+
+                            }
+                            else {
+                                wraper.html(morph);
+                            }
+
                         }
 
-                    }
+                    }, timeout)
+                }
+                else {
+                    wraper.removeAttr('data-writer-on');
+                    callback();
 
-                },timeout)
-            }
-            else {
-                callback();
+                }
 
-            }
         };
 
-        morphing($(this), letters,maskArray, 0, '',0, callback);
+        if(!$(this).attr('data-writer-on')){
+            morphing($(this), letters, maskArray, 0, '', 0, callback);
+        }
 
     };
 
