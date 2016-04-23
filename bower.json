@@ -1,0 +1,15 @@
+{
+  "name": "jquery.nylautowriter",
+  "authors": [
+    "Nyl"
+  ],
+  "description": "Jquery autowriter with a little visual effect",
+  "main": "",
+  "keywords": [
+    "jquery",
+    "autowriter",
+    "writer"
+  ],
+  "license": "MIT",
+  "homepage": ""
+}
