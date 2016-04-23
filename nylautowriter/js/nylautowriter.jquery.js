@@ -2,9 +2,6 @@
 {
     $.fn.NylAutoWriter = function(options, callback)
     {
-
-
-
         var colorstr2Hex = function colourNameToHex(colour)
         {
             var colours = {"aliceblue":"#f0f8ff","antiquewhite":"#faebd7","aqua":"#00ffff","aquamarine":"#7fffd4","azure":"#f0ffff",
@@ -32,9 +29,9 @@
                 "wheat":"#f5deb3","white":"#ffffff","whitesmoke":"#f5f5f5",
                 "yellow":"#ffff00","yellowgreen":"#9acd32"};
 
-            if (typeof colour != 'undefined' && typeof colours[colour.toLowerCase()] != 'undefined')
+            if (typeof colour != 'undefined' && typeof colours[colour.toLowerCase()] != 'undefined') {
                 return colours[colour.toLowerCase()];
-
+            }
             return false;
         };
 
@@ -46,16 +43,14 @@
             backgroundColorChunk = backgroundColor.slice(3,7),
             noColor = options.blackAndWhite || false,
             letters = $(this).html().split(''),
-            iterations = options.iterations || 10;
-        maskArray = mask.split('');
+            iterations = options.iterations || 10,
+            maskArray = mask.split('');
 
         if (typeof options === 'function') {
             callback = options;
         }
 
         $(this).html('&nbsp;');
-
-
 
 
         var morphing = function(wraper, letters, mask, position, morph, iteration, callback){
