@@ -49,6 +49,9 @@
             iterations = options.iterations || 10;
         maskArray = mask.split('');
 
+        if (typeof options === 'function') {
+            callback = options;
+        }
 
         $(this).html('&nbsp;');
 
