@@ -44,11 +44,13 @@
             noColor = options.blackAndWhite || false,
             letters = $(this).html().split(''),
             iterations = options.iterations || 10,
+            callback = callback || function(){},
             maskArray = mask.split('');
 
         if (typeof options === 'function') {
             callback = options;
         }
+
 
         $(this).html('&nbsp;');
 
