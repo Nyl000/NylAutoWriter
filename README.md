@@ -24,4 +24,30 @@ $('#text').NylAutoWriter(function() {
     console.log("It's done !");
 });
 ```
+__With options__
+```javascript
+$('#text').NylAutoWriter({
+    color: #00FF00;
+});
+```
 
+### Options
+
+* ##### color
+    Default : 'black'
+the text color of the writter's cursor.
+* ##### backgroundColor:
+    Default: 'white'  
+    The background color of the writter's cursor
+* ##### mask
+    default: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?!-,.@/\'"'
+The mask used by the script to pick random letters for the cursor effect
+* ##### timeout
+    default: 1
+The timeout value in milliseconds used into the cursor effet
+* ##### blackAndWhite
+    default: false
+    Use this flag to force back and white effect with the cursor.
+* ##### iterations
+    default: 10
+    The number of random iterations used per letter for the cursor effect
