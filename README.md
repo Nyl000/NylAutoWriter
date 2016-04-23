@@ -27,7 +27,13 @@ $('#text').NylAutoWriter(function() {
 __With options__
 ```javascript
 $('#text').NylAutoWriter({
-    color: #00FF00;
+    color: #00FF00,
+});
+```
+__Full example__
+```javascript
+$('#text').NylAutoWriter({ color: #00FF00 }, function(){
+    console.log("It's done !");
 });
 ```
 
