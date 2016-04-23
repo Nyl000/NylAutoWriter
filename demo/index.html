@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nyl Auto Writer - Jquery plugin example</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+</head>
+<body>
+<section id="landscape">
+
+    <h1>Jquery NylAutoWriter</h1>
+    <div class="box" id="nylautowriter">
+
+    </div>
+    <div class="codebox">
+        <code>
+            <pre>
+$('#mytext').NylAutoWriter({
+    color: 'white',
+    backgroundColor: 'black',
+    noColor: true
+});
+                </pre>
+        </code>
+    </div>
+
+</section>
+
+<script src="https://code.jquery.com/jquery-1.12.3.min.js"   integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ="   crossorigin="anonymous"></script>
+<script src="../nylautowriter/js/nylautowriter.jquery.js"></script>
+
+
+
+
+<script>
+
+    $(function(){
+
+        var sentences = [
+                    "$: Hello World !",
+                    "$: I'm the NylAutoWriter Jquery plugin",
+                    "$: You can see examples of codes by scrolling down.",
+                ],
+                cursor = 0;
+        $('#nylautowriter').html(sentences[cursor]);
+
+
+        var loop = function() {
+            $('#nylautowriter').NylAutoWriter({
+                color: 'white',
+                backgroundColor: 'black',
+                noColor: true,
+                mask : "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNO^$$@@1&&&|||§§§§§€€€********PQRSTUVWXYZ0@@@123456789?!!!!!-,.@/\'",
+            },function() {
+                setTimeout(function(){
+                    cursor = (cursor+1) % sentences.length;
+                    $('#nylautowriter').html(sentences[cursor]);
+                    loop();
+                },3000);
+            });
+        };
+        loop();
+
+
+    });
+</script>
+</body>
+</html>
