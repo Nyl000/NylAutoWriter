@@ -44,7 +44,7 @@
             mask = options.mask || ' abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?!-,.@/\'"',
             timeout = options.timeout || 1,
             backgroundColorChunk = backgroundColor.slice(3,7),
-            noColor = options.noColor || false,
+            noColor = options.blackAndWhite || false,
             letters = $(this).html().split(''),
             iterations = options.iterations || 10;
         maskArray = mask.split('');
