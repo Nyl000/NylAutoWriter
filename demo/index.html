@@ -17,11 +17,7 @@
     <div class="codebox">
         <code>
             <pre>
-$('#mytext').NylAutoWriter({
-    color: 'white',
-    backgroundColor: 'black',
-    noColor: true
-});
+$('#mytext').NylAutoWriter();
                 </pre>
         </code>
     </div>
@@ -51,12 +47,7 @@ $('#mytext').NylAutoWriter({
 
 
         var loop = function() {
-            $('#nylautowriter').NylAutoWriter({
-                color: 'white',
-                backgroundColor: 'black',
-                noColor: true,
-                mask : "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNO^$$@@1&&&|||§§§§§€€€********PQRSTUVWXYZ0@@@123456789?!!!!!-,.@/\'",
-            },function() {
+            $('#nylautowriter').NylAutoWriter({},function() {
                 setTimeout(function(){
                     cursor = (cursor+1) % sentences.length;
                     $('#nylautowriter').html(sentences[cursor]);
