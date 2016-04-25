@@ -45,7 +45,9 @@
             letters = $(this).html().split(''),
             iterations = options.iterations || 10,
             callback = callback || function(){},
+            fontWeight = options.fontWeight || 'normal',
             maskArray = mask.split('');
+
 
         if (typeof options === 'function') {
             callback = options;
@@ -64,10 +66,10 @@
                             var randR = Math.floor(Math.random() * 255).toString(16);
 
                             if (!noColor) {
-                                wraper.html(morph + '<span style=" color: ' + textColor + '; background:#' + randR + backgroundColorChunk + '">' + mask[rand] + "</span>");
+                                wraper.html(morph + '<span style="font-weight: '+fontWeight+'; color: ' + textColor + '; background:#' + randR + backgroundColorChunk + '">' + mask[rand] + "</span>");
                             }
                             else {
-                                wraper.html(morph + '<span style=" color: ' + textColor + '; background:#' + randR + randR + randR + '">' + mask[rand] + "</span>");
+                                wraper.html(morph + '<span style="font-weight: '+fontWeight+'; color: ' + textColor + '; background:#' + randR + randR + randR + '">' + mask[rand] + "</span>");
 
                             }
 
