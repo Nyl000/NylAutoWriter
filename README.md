@@ -54,6 +54,9 @@ $('#text').NylAutoWriter({ color: #00FF00 }, function(){
 ##### backgroundColor:
     Default: 'white'
     The background color of the writter's cursor
+##### fontWeight:
+    Default: 'normal'
+    Set the weight of the cursor (support all css values)
 ##### mask
     Default: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?!-,.@/\'"'
     The mask used by the script to pick random letters for the cursor effect
