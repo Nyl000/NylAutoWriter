@@ -58,48 +58,76 @@
 
 
         var morphing = function(wraper, letters, mask, position, morph, iteration, callback){
-                wraper.attr('data-writer-on', true);
-                if (position < letters.length) {
-                    setTimeout(function () {
-                        var rand = Math.floor(Math.random() * mask.length);
-                        if (iteration < iterations) {
-                            var randR = Math.floor(Math.random() * 255).toString(16);
+            wraper.attr('data-writer-on', true);
+            if (position < letters.length) {
+                setTimeout(function () {
+                    var rand = Math.floor(Math.random() * mask.length);
+                    if (iteration < iterations) {
+                        var randR = Math.floor(Math.random() * 255).toString(16);
 
-                            if (!noColor) {
-                                wraper.html(morph + '<span style="font-weight: '+fontWeight+'; color: ' + textColor + '; background:#' + randR + backgroundColorChunk + '">' + mask[rand] + "</span>");
+                        if (!noColor) {
+                            wraper.html(morph + '<span style="font-weight: '+fontWeight+'; color: ' + textColor + '; background:#' + randR + backgroundColorChunk + '">' + mask[rand] + "</span>");
+                        }
+                        else {
+                            wraper.html(morph + '<span style="font-weight: '+fontWeight+'; color: ' + textColor + '; background:#' + randR + randR + randR + '">' + mask[rand] + "</span>");
+
+                        }
+
+                        morphing(wraper, letters, mask, position, morph, iteration + 1, callback);
+
+
+                    }
+                    else {
+                        wraper.html(morph + letters[position]);
+
+                        if (position < letters.length) {
+
+                            //consider html tags as a "signle letter" in the render.
+                            if (letters[position] === '<' || letters[position] === '&') {
+                                var tag = '';
+                                var endTag = '';
+                                if (letters[position] === '<') {
+                                    endTag = '>'
+                                } else {
+                                    endTag = ';'
+                                }
+
+                                while (letters[position] !== endTag) {
+                                    tag += letters[position]
+                                    position++
+
+                                }
+
+                                tag += endTag;
+                                morph+= tag;
+                                position++;
+                                letters.splice(position,0,'');
+
+
+
                             }
-                            else {
-                                wraper.html(morph + '<span style="font-weight: '+fontWeight+'; color: ' + textColor + '; background:#' + randR + randR + randR + '">' + mask[rand] + "</span>");
 
-                            }
 
-                            morphing(wraper, letters, mask, position, morph, iteration + 1, callback);
+
+                            morph += letters[position];
+
+                            morphing(wraper, letters, mask, position + 1, morph, 0, callback);
 
 
                         }
                         else {
-                            wraper.html(morph + letters[position]);
-
-                            if (position < letters.length) {
-                                morph += letters[position];
-
-                                morphing(wraper, letters, mask, position + 1, morph, 0, callback);
-
-
-                            }
-                            else {
-                                wraper.html(morph);
-                            }
-
+                            wraper.html(morph);
                         }
 
-                    }, timeout)
-                }
-                else {
-                    wraper.removeAttr('data-writer-on');
-                    callback();
+                    }
 
-                }
+                }, timeout)
+            }
+            else {
+                wraper.removeAttr('data-writer-on');
+                callback();
+
+            }
 
         };
 
